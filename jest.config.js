@@ -14,4 +14,3 @@ module.exports = {
     '\\.scss$': 'identity-obj-proxy'
   }
 }
-
