@@ -1,9 +1,6 @@
 import React from 'react'
+import { Footer, LoginHeader, Input, FormStatus } from '@/presentation/components'
 import styles from './login-styles.scss'
-import Footer from '@/presentation/components/footer/footer'
-import LoginHeader from '@/presentation/components/login-header/login-header'
-import Input from '@/presentation/components/input/input'
-import FormStatus from '@/presentation/components/form-status/form-status'
 
 const Login: React.FC = () => {
   return (
