@@ -9,7 +9,7 @@ type StateProps = {
 }
 
 const Login: React.FC = () => {
-  const [ state ] = useState<StateProps>({ 
+  const [state] = useState<StateProps>({
     isLoading: false,
     errorMessage: ''
   })
