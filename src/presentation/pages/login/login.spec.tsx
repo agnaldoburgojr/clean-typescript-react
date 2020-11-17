@@ -36,7 +36,7 @@ const populateEmailField = (sut: RenderResult, email = faker.internet.email()): 
   fireEvent.input(emailInput, { target: { value: email } })
 }
 
-const populatePasswordField= (sut: RenderResult, password = faker.internet.password()): void => {
+const populatePasswordField = (sut: RenderResult, password = faker.internet.password()): void => {
   const passwordInput = sut.getByTestId('password')
   fireEvent.input(passwordInput, { target: { value: password } })
 }
@@ -45,7 +45,7 @@ const simulateStatusForField = (sut: RenderResult, fieldName: string, validation
   const status = sut.getByTestId(`${fieldName}-status`)
   expect(status.title).toBe(validationError || 'Tudo certo!')
   expect(status.textContent).toBe(validationError ? '❌' : '✅')
-} 
+}
 
 describe('Login Component', () => {
   afterEach(cleanup)
@@ -119,5 +119,13 @@ describe('Login Component', () => {
     simulateValidSubmit(sut)
     simulateValidSubmit(sut)
     expect(authenticationSpy.callsCount).toBe(1)
+  })
+
+  test('Should not call Authentication if form is invalid', () => {
+    const validationError = faker.random.words()
+    const { sut, authenticationSpy } = makeSut({ validationError })
+    populateEmailField(sut)
+    fireEvent.submit(sut.getByTestId('form'))
+    expect(authenticationSpy.callsCount).toBe(0)
   })
 })
