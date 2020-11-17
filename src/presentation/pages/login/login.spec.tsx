@@ -39,7 +39,7 @@ const simulateValidSubmit = async (sut: RenderResult, email = faker.internet.ema
   populatePasswordField(sut, password)
   const form = sut.getByTestId('form')
   fireEvent.submit(form)
-  await waitFor(()=> form)
+  await waitFor(() => form)
 }
 
 const populateEmailField = (sut: RenderResult, email = faker.internet.email()): void => {
@@ -54,7 +54,7 @@ const populatePasswordField = (sut: RenderResult, password = faker.internet.pass
 
 const testElementExists = (sut: RenderResult, fieldName: string): void => {
   const el = sut.getByTestId(fieldName)
-  expect(el).toBeTruthy
+  expect(el).toBeTruthy()
 }
 
 const testElementText = (sut: RenderResult, fieldName: string, text: string): void => {

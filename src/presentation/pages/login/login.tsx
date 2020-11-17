@@ -38,7 +38,7 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
       const account = await authentication.auth({ email: state.email, password: state.password })
       localStorage.setItem('accessToken', account.accessToken)
       history.replace('/')
-    } catch(error) {
+    } catch (error) {
       setState({
         ...state,
         isLoading: false,
